@@ -14,6 +14,7 @@ interface Project {
   demo: string;
   accentBg: string;
   icon: React.ReactNode;
+  buttonText?: string;
 }
 
 export default function Projects() {
@@ -34,10 +35,6 @@ export default function Projects() {
     }
     return () => observer.disconnect();
   }, []);
-
-  // Category Filtering State
-  const categories = ["ALL", "WEB APPS", "TOOLS", "SYSTEMS", "CREATIVE"];
-  const [activeCategory, setActiveCategory] = useState("ALL");
 
   // Header Interactive Colors cycling
   const yellowSquareColors = ["bg-yellow-400", "bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-emerald-400", "bg-orange-400"];
@@ -67,13 +64,13 @@ export default function Projects() {
     </svg>
   );
 
-  const shankhcallIcon = (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-11 h-11 text-black">
-      <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.2a.96.96 0 0 0 .25-1.02c-.37-1.11-.57-2.3-.57-3.53C6.36 3.35 5.65 2.64 4.63 2.64H1.89c-1.02 0-1.89.87-1.89 1.89C0 14.8 9.2 24 19.47 24c1.02 0 1.89-.87 1.89-1.89v-2.73c0-1.02-.71-1.73-1.73-1.73z" />
+  const stormIcon = (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-12 h-12 text-black">
+      <path d="M18 10h-.7A5.5 5.5 0 0 0 6.5 10H6a4 4 0 0 0 0 8h12a4.5 4.5 0 0 0 0-9z" strokeLinecap="round" strokeLinejoin="round" fill="white" />
+      <path d="M11.5 12l-2.5 4.5h3l-1.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 
-  // Keyboard button keycap icon for On Air Keyboard
   const keyboardKeyIcon = (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-11 h-11 text-black">
       <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" fill="white" />
@@ -99,7 +96,6 @@ export default function Projects() {
     </svg>
   );
 
-  // Key icon for Cryptic Hunt
   const keyIcon = (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-11 h-11 text-black">
       <circle cx="7.5" cy="15.5" r="4.5" stroke="currentColor" fill="white" />
@@ -107,7 +103,6 @@ export default function Projects() {
     </svg>
   );
 
-  // Web Browser window icon for CS Website
   const browserIcon = (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-11 h-11 text-black">
       <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" fill="white" />
@@ -118,108 +113,124 @@ export default function Projects() {
     </svg>
   );
 
-  // Projects definitions with 2 new entries
+  const githubIcon = (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-11 h-11 text-black">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+    </svg>
+  );
+
+  // Projects definitions with 9 unique colors
   const projectsData: Project[] = [
     {
-      id: "shankhcall",
-      indexStr: "01",
-      title: "shankhcall",
-      category: "WEB APPS",
-      description: "A communication application project focusing on seamless connectivity and user experience.",
-      tags: ["TypeScript", "Next.js", "Leaflet"],
-      github: "https://github.com/Viidhyanshu/shankhcall",
-      demo: "https://github.com/Viidhyanshu/shankhcall#readme",
-      accentBg: "bg-[#fa5b8d]",
-      icon: shankhcallIcon
-    },
-    {
       id: "quantum",
-      indexStr: "02",
+      indexStr: "01",
       title: "Quantum Circuit Visualizer",
       category: "TOOLS",
       description: "A premium, high-impact tool for building and visualizing quantum circuits with interactive gate placement and measurement results.",
       tags: ["TypeScript", "React", "QuantumJS"],
       github: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer",
       demo: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer#readme",
-      accentBg: "bg-yellow-400",
+      accentBg: "bg-yellow-400", // Yellow
       icon: quantumIcon
-    },{
-      id: "cs-website",
-      indexStr: "03",
-      title: "IEEE CS Official Website",
-      category: "WEB APPS",
-      description: "The official web space for the IEEE CS, showcasing events, team rosters, blogs, and gallery.",
-      tags: ["Next.js", "React", "Tailwind CSS", "Shadcn UI"],
-      github: "https://github.com/Viidhyanshu/CS-Website",
-      demo: "https://github.com/Viidhyanshu/CS-Website#readme",
-      accentBg: "bg-yellow-400",
-      icon: browserIcon // Web Browser window icon
-    },
-    {
-      id: "f1-data",
-      indexStr: "04",
-      title: "F1 Telemetry Analytics Dashboard",
-      category: "SYSTEMS",
-      description: "F1 telemetry data visualization and analytics platform for racing insights and performance tracking.",
-      tags: ["Python", "FastF1", "Streamlit"],
-      github: "https://github.com/Viidhyanshu/F1-Telemetry-Analytics-Dashboard",
-      demo: "https://github.com/Viidhyanshu/F1-Telemetry-Analytics-Dashboard#readme",
-      accentBg: "bg-[#8b5cf6]",
-      icon: f1Icon
-    },
-    {
-      id: "cascade-hunt",
-      indexStr: "05",
-      title: "Cascade Cryptic Hunt",
-      category: "CREATIVE",
-      description: "A full-stack, real-time cryptic hunt gaming platform built using Next.js, featuring progressive clue decoding, user authentication, and interactive database persistence.",
-      tags: ["Next.js", "TypeScript", "Drizzle ORM", "Tailwind CSS"],
-      github: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt",
-      demo: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt#readme",
-      accentBg: "bg-[#fa5b8d]",
-      icon: keyIcon // Key vector icon
-    },
-    {
-      id: "on-air-kbd",
-      indexStr: "06",
-      title: "On Air Keyboard",
-      category: "TOOLS",
-      description: "An innovative virtual keyboard using OpenCV and MediaPipe for gesture-based input.",
-      tags: ["OpenCV", "MediaPipe", "Python"],
-      github: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe",
-      demo: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe#readme",
-      accentBg: "bg-[#8b5cf6]",
-      icon: keyboardKeyIcon // Updated to Keycap icon
     },
     {
       id: "trustchain",
-      indexStr: "07",
+      indexStr: "02",
       title: "TrustChain Microfinance Grid",
       category: "SYSTEMS",
       description: "A microfinance grid prototype built with blockchain technology for secure and transparent financial transactions.",
       tags: ["Solidity", "Web3.js", "Ethereum"],
       github: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype",
       demo: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype#readme",
-      accentBg: "bg-[#8b5cf6]",
+      accentBg: "bg-[#8b5cf6]", // Purple
       icon: trustchainIcon
     },
     {
+      id: "shankhcall",
+      indexStr: "03",
+      title: "shankhcall",
+      category: "WEB APPS",
+      description: "A communication application project focusing on seamless connectivity and user experience.",
+      tags: ["TypeScript", "Next.js", "Leaflet"],
+      github: "https://github.com/Viidhyanshu/shankhcall",
+      demo: "https://github.com/Viidhyanshu/shankhcall#readme",
+      accentBg: "bg-[#fa5b8d]", // Pink
+      icon: stormIcon
+    },
+    {
+      id: "on-air-kbd",
+      indexStr: "04",
+      title: "On Air Keyboard",
+      category: "TOOLS",
+      description: "An innovative virtual keyboard using OpenCV and MediaPipe for gesture-based input.",
+      tags: ["OpenCV", "MediaPipe", "Python"],
+      github: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe",
+      demo: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe#readme",
+      accentBg: "bg-cyan-400", // Cyan
+      icon: keyboardKeyIcon
+    },
+    {
       id: "coffee-shop",
-      indexStr: "08",
+      indexStr: "05",
       title: "The Coffee Shop",
       category: "CREATIVE",
       description: "A cozy café-inspired website focused on clean design, warmth, and smooth user experience.",
       tags: ["HTML", "Vanilla CSS", "JavaScript"],
       github: "https://github.com/Viidhyanshu/The-coffee-shop",
       demo: "https://github.com/Viidhyanshu/The-coffee-shop#readme",
-      accentBg: "bg-yellow-400",
+      accentBg: "bg-orange-400", // Orange
       icon: coffeeIcon
     },
+    {
+      id: "f1-data",
+      indexStr: "06",
+      title: "F1 Telemetry Analytics Dashboard",
+      category: "SYSTEMS",
+      description: "F1 telemetry data visualization and analytics platform for racing insights and performance tracking.",
+      tags: ["Python", "FastF1", "Streamlit"],
+      github: "https://github.com/Viidhyanshu/F1-Telemetry-Dashboard",
+      demo: "https://github.com/Viidhyanshu/F1-Telemetry-Analytics-Dashboard#readme",
+      accentBg: "bg-emerald-400", // Emerald Green
+      icon: f1Icon
+    },
+    {
+      id: "cascade-hunt",
+      indexStr: "07",
+      title: "Cascade Cryptic Hunt",
+      category: "CREATIVE",
+      description: "A full-stack, real-time cryptic hunt gaming platform built using Next.js, featuring progressive clue decoding, user authentication, and interactive database persistence.",
+      tags: ["Next.js", "TypeScript", "Drizzle ORM", "Tailwind CSS"],
+      github: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt",
+      demo: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt#readme",
+      accentBg: "bg-fuchsia-400", // Fuchsia Pink
+      icon: keyIcon
+    },
+    {
+      id: "cs-website",
+      indexStr: "08",
+      title: "CS Club Official Website",
+      category: "WEB APPS",
+      description: "The official web space for the Computer Science department and club, showcasing events, team rosters, blogs, and registration forms.",
+      tags: ["Next.js", "React", "Tailwind CSS", "Shadcn UI"],
+      github: "https://github.com/Viidhyanshu/CS-Website",
+      demo: "https://github.com/Viidhyanshu/CS-Website#readme",
+      accentBg: "bg-lime-400", // Lime Green
+      icon: browserIcon
+    },
+    {
+      id: "coming-soon",
+      indexStr: "",
+      title: "More Projects Coming Soon",
+      category: "CREATIVE",
+      description: "Stay tuned! I am constantly designing and coding new experiments, tools, and websites. Check my GitHub profile for live updates.",
+      tags: ["Next.js", "React", "Python", "Solidity"],
+      github: "https://github.com/Viidhyanshu",
+      demo: "",
+      accentBg: "bg-sky-400", // Sky Blue
+      icon: githubIcon,
+      buttonText: "MORE ON GITHUB"
+    }
   ];
-
-  const filteredProjects = activeCategory === "ALL"
-    ? projectsData
-    : projectsData.filter((p) => p.category === activeCategory);
 
   return (
     <section
@@ -280,31 +291,9 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* FILTER PILLS SYSTEM */}
-      <div
-        className={`w-full flex flex-wrap justify-center gap-3 mb-12 select-none relative z-10 transition-all duration-700 delay-100 ease-out transform ${
-          isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
-        }`}
-      >
-        {categories.map((cat) => {
-          const isActive = activeCategory === cat;
-          return (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`border-3 border-black px-5 py-2 font-mono font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-100 cursor-pointer shadow-[3px_3px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] ${
-                isActive ? "bg-yellow-400 text-black" : "bg-white text-zinc-700 hover:text-black"
-              }`}
-            >
-              {cat}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* 2x3 DETAILS PROJECTS GRID */}
+      {/* 3x3 DETAILS PROJECTS GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10 items-stretch">
-        {filteredProjects.map((project, idx) => (
+        {projectsData.map((project, idx) => (
           <ProjectCard
             key={project.id}
             project={project}
@@ -312,13 +301,6 @@ export default function Projects() {
             idx={idx}
           />
         ))}
-      </div>
-
-      {/* BOTTOM BANNER */}
-      <div className="w-full flex flex-col items-center gap-8 mt-16 select-none relative overflow-visible z-10">
-        <div className="bg-[#facc15] border-4 border-black text-black px-12 py-3.5 shadow-[5px_5px_0px_#000000] font-sans font-black text-sm tracking-widest uppercase hover:scale-[1.03] transition-all cursor-pointer">
-          MORE PROJECTS COMING SOON...
-        </div>
       </div>
     </section>
   );
