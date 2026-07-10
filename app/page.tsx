@@ -5,6 +5,7 @@ import CommentCard from "@/components/CommentCard";
 import WhoamiCard from "@/components/WhoamiCard";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* About Section */}
       <About />
+
+      {/* Projects Section */}
+      <Projects />
     </div>
   );
 }
