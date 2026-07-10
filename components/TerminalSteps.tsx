@@ -10,10 +10,10 @@ export default function TerminalSteps() {
         dots.push(
           <div
             key={`${r}-${c}`}
-            className="w-1.5 h-1.5 bg-black rounded-full absolute"
+            className="w-[2.5px] h-[2.5px] bg-black rounded-full absolute opacity-60"
             style={{
-              top: `${r * 15}px`,
-              left: `${c * 15}px`,
+              top: `${r * 12}px`,
+              left: `${c * 12}px`,
             }}
           />
         );
@@ -26,12 +26,12 @@ export default function TerminalSteps() {
     <div className="relative w-[320px] h-[320px] md:w-[360px] md:h-[360px] select-none">
       
       {/* 1. Terminal Window (Top-Left) */}
-      <div className="absolute top-0 left-0 w-56 border-4 border-black bg-black shadow-[4px_4px_0px_#000000] font-mono z-20">
+      <div className="absolute top-8 left-10 w-56 border-4 border-black bg-black shadow-[4px_4px_0px_#000000] font-mono z-20">
         {/* Purple Bar */}
         <div className="bg-[#8b5cf6] border-b-4 border-black h-8 px-3 flex items-center gap-1.5">
-          <div className="w-2.5 h-2.5 bg-black rounded-full" />
-          <div className="w-2.5 h-2.5 bg-black rounded-full" />
-          <div className="w-2.5 h-2.5 bg-black rounded-full border border-black fill-none" />
+          <div className="w-2.5 h-2.5 bg-[#F00000] rounded-full" />
+          <div className="w-2.5 h-2.5 bg-[#FFEA00] rounded-full" />
+          <div className="w-2.5 h-2.5 bg-[#008000] rounded-full border border-black fill-none" />
         </div>
         {/* Code Output */}
         <div className="p-3 text-[11px] leading-relaxed text-white">
@@ -47,7 +47,7 @@ export default function TerminalSteps() {
       </div>
 
       {/* 2. Triangular Dot Grid (Middle-Left) */}
-      <div className="absolute top-[120px] left-[10px] w-[180px] h-[180px] z-0">
+      <div className="absolute top-[167px] left-[167px] w-[150px] h-[150px] z-0">
         {renderDotGrid()}
       </div>
 
@@ -72,12 +72,12 @@ export default function TerminalSteps() {
       </div>
 
       {/* 4. Floating Chevron ">" (Bottom-Center) */}
-      <div className="absolute bottom-[40px] left-[80px] z-20 text-black text-3xl font-black rotate-12 scale-y-125">
+      <div className="absolute bottom-[40px] left-[100px] z-20 text-black text-3xl font-black rotate-12 scale-y-125">
         &gt;
       </div>
 
       {/* 5. Floating Plus "+" (Above Staircase) */}
-      <div className="absolute top-[70px] right-[20px] md:right-[30px] z-20 text-black text-3xl font-black">
+      <div className="absolute top-[90px] right-[20px] md:right-[10px] z-20 text-black text-3xl font-black">
         +
       </div>
     </div>
