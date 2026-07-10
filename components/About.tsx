@@ -1,8 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function About() {
+  // Intersection Observer for scroll-driven fade-in/fade-out animations
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is inside viewport
+      }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   // State variables for interactive color cycling of main elements
   const [purpleSquareColorIdx, setPurpleSquareColorIdx] = useState(0);
   const purpleSquareColors = ["bg-[#8b5cf6]", "bg-yellow-400", "bg-[#fa5b8d]", "bg-emerald-400", "bg-orange-400"];
@@ -162,8 +181,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0">
-      
+    <section
+      id="about"
+      ref={sectionRef}
+      className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0"
+    >
       {/* Mapped Scattered Background Interactive Doodles */}
       {doodleData.map((doodle, idx) => (
         <div
@@ -176,7 +198,11 @@ export default function About() {
               return updated;
             });
           }}
-          className={`absolute ${doodleColors[doodleColorIndices[idx]]} ${doodle.rotate} cursor-pointer opacity-70 hover:opacity-100 hover:scale-125 hover:rotate-[15deg] active:scale-95 transition-all duration-100 z-0 select-none hidden md:block`}
+          className={`absolute ${doodleColors[doodleColorIndices[idx]]} ${
+            doodle.rotate
+          } cursor-pointer opacity-70 hover:opacity-100 hover:scale-125 hover:rotate-[15deg] active:scale-95 transition-all duration-100 z-0 select-none hidden md:block ${
+            isVisible ? "opacity-70 scale-100" : "opacity-0 scale-50"
+          } transition-all duration-700 ease-out`}
           title="Click to change color!"
         >
           {renderDoodleIcon(doodle.type)}
@@ -184,7 +210,11 @@ export default function About() {
       ))}
 
       {/* 1. Header component based on design image */}
-      <div className="w-full flex items-center justify-between gap-4 mb-16 select-none relative z-10">
+      <div
+        className={`w-full flex items-center justify-between gap-4 mb-16 select-none relative z-10 transition-all duration-700 ease-out transform ${
+          isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+        }`}
+      >
         {/* Left Decor: Dot matrix + Purple box */}
         <div className="hidden md:flex items-center gap-4">
           <div className="grid grid-cols-9 gap-2">
@@ -247,7 +277,11 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10">
         
         {/* Left Card: Biography Description */}
-        <div className="relative lg:col-span-7 bg-white border-4 border-black p-6 sm:p-8 shadow-[6px_6px_0px_#000000] text-black text-left font-mono leading-relaxed flex flex-col justify-center z-10 overflow-visible">
+        <div
+          className={`relative lg:col-span-7 bg-white border-4 border-black p-6 sm:p-8 shadow-[6px_6px_0px_#000000] text-black text-left font-mono leading-relaxed flex flex-col justify-center z-10 overflow-visible transition-all duration-700 delay-100 ease-out transform ${
+            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+          }`}
+        >
           {/* L-shaped Pink Accent under the bottom-left corner */}
           <svg
             width="240"
@@ -290,7 +324,11 @@ export default function About() {
         </div>
 
         {/* Right Card Stack: Social Link Items */}
-        <div className="relative lg:col-span-5 flex flex-col gap-4 justify-between z-10 overflow-visible">
+        <div
+          className={`relative lg:col-span-5 flex flex-col gap-4 justify-between z-10 overflow-visible transition-all duration-700 delay-200 ease-out transform ${
+            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
+          }`}
+        >
           {socialCards.map((card) => (
             <a
               key={card.name}
