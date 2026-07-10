@@ -56,6 +56,12 @@ experiences.
       
       {/* 1. Desktop Decorations (Around the Comment Card) */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Yellow JavaScript Badge "JS" (Top-Left, Symmetrical to TS Badge) */}
+        <div 
+          className="absolute top-[20px] left-[-35px] w-14 h-14 bg-yellow-400 border-[3.5px] border-black shadow-[4px_4px_0px_#000000] flex items-center justify-center font-sans font-black text-xl text-black"
+        >
+          JS
+        </div>
         
         {/* Rectangular Dot Grid (Top-Right) */}
         <div className="absolute top-[10px] right-[10px] w-[160px] h-[65px]">
