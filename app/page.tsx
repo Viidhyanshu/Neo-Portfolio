@@ -8,14 +8,14 @@ export default function Home() {
       <Navbar />
       
       {/* Canvas Area: Stacked on mobile, Absolute float on desktop */}
-      <div className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 pb-12 lg:pb-0 relative flex flex-col lg:block justify-center items-center gap-12">
+      <div className="flex-1 w-full px-4 md:px-8 pb-12 lg:pb-0 relative flex flex-col lg:block justify-center items-center gap-12">
         {/* Bottom Left: CodeWindow */}
-        <div className="lg:absolute lg:bottom-12 lg:left-8 xl:left-12">
+        <div className="lg:absolute lg:bottom-12 lg:left-4 xl:left-8">
           <CodeWindow />
         </div>
         
         {/* Bottom Right: TerminalSteps */}
-        <div className="lg:absolute lg:bottom-12 lg:right-8 xl:right-12">
+        <div className="lg:absolute lg:bottom-12 lg:right-4 xl:right-8">
           <TerminalSteps />
         </div>
       </div>
