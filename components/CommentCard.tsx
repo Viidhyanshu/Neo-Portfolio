@@ -1,6 +1,34 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 export default function CommentCard() {
+  const quotes = [
+    `/*
+Passionate about
+building cool stuff
+and solving real
+world problems.
+*/`,
+    `/*
+Always learning
+new technologies,
+exploring systems,
+and clean code.
+*/`,
+    `/*
+Creating bold UI,
+rich aesthetics,
+and premium user
+experiences.
+*/`
+  ];
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
+  const cycleQuote = () => {
+    setQuoteIndex((prev) => (prev + 1) % quotes.length);
+  };
+
   // Generate rectangular dot grid dynamically
   const renderRectGrid = () => {
     const dots = [];
@@ -36,14 +64,12 @@ export default function CommentCard() {
       </div>
 
       {/* 2. Main Dashed Card (Snug Horizontal Rectangle) */}
-      <div className="relative w-full bg-white border-3 border-dashed border-black shadow-[5px_5px_0px_#000000] z-10">
+      <div 
+        onClick={cycleQuote}
+        className="relative w-full bg-white border-3 border-dashed border-black shadow-[5px_5px_0px_#000000] hover:shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] active:translate-x-[3px] active:translate-y-[3px] transition-all duration-100 z-10 cursor-pointer"
+      >
         <pre className="pl-3 pr-1 py-4 font-mono text-[12px] sm:text-[13px] md:text-[13.5px] leading-relaxed text-black whitespace-pre text-left w-full">
-{`/*
-Passionate about
-building cool stuff
-and solving real
-world problems.
-*/`}
+          {quotes[quoteIndex]}
         </pre>
       </div>
     </div>

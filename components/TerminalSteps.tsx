@@ -1,6 +1,30 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 export default function TerminalSteps() {
+  const compilerLogs = [
+    "Building dreams...",
+    "Compiling assets...",
+    "Ready in 42ms!",
+    "✓ Built successfully!"
+  ];
+  const [logIndex, setLogIndex] = useState(0);
+
+  const stepColors = ["#8b5cf6", "#f43f5e", "#10b981", "#fbbf24"];
+  const [colorIndex, setColorIndex] = useState(0);
+  const [bounceStep, setBounceStep] = useState(false);
+
+  const handleTerminalClick = () => {
+    setLogIndex((prev) => (prev + 1) % compilerLogs.length);
+  };
+
+  const handleStepClick = () => {
+    setColorIndex((prev) => (prev + 1) % stepColors.length);
+    setBounceStep(true);
+    setTimeout(() => setBounceStep(false), 300);
+  };
+
   // Generate a triangular dot grid matrix dynamically
   const renderDotGrid = () => {
     const rows = 12;
@@ -10,7 +34,7 @@ export default function TerminalSteps() {
         dots.push(
           <div
             key={`${r}-${c}`}
-            className="w-[2.5px] h-[2.5px] bg-black rounded-full absolute opacity-60"
+            className="w-[2.5px] h-[2.5px] bg-black rounded-full absolute opacity-90"
             style={{
               top: `${r * 12}px`,
               left: `${c * 12}px`,
@@ -26,7 +50,10 @@ export default function TerminalSteps() {
     <div className="relative w-[320px] h-[320px] md:w-[360px] md:h-[360px] select-none">
       
       {/* 1. Terminal Window (Top-Left) */}
-      <div className="absolute top-8 left-10 w-56 border-4 border-black bg-black shadow-[4px_4px_0px_#000000] font-mono z-20">
+      <div 
+        onClick={handleTerminalClick}
+        className="absolute top-8 left-10 w-56 border-4 border-black bg-black shadow-[4px_4px_0px_#000000] hover:shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] active:translate-x-[3px] active:translate-y-[3px] transition-all duration-100 font-mono z-20 cursor-pointer"
+      >
         {/* Purple Bar */}
         <div className="bg-[#8b5cf6] border-b-4 border-black h-8 px-3 flex items-center gap-1.5">
           <div className="w-2.5 h-2.5 bg-[#F00000] rounded-full" />
@@ -41,7 +68,7 @@ export default function TerminalSteps() {
           </div>
           <div className="flex gap-2 mt-1">
             <span className="text-zinc-500 font-bold">&gt;</span>
-            <span className="text-yellow-300 font-bold">Building dreams...</span>
+            <span className="text-yellow-300 font-bold min-h-[16px] block">{compilerLogs[logIndex]}</span>
           </div>
         </div>
       </div>
@@ -52,7 +79,10 @@ export default function TerminalSteps() {
       </div>
 
       {/* 3. Steps staircase (Bottom-Right) */}
-      <div className="absolute bottom-0 right-0 z-10">
+      <div 
+        onClick={handleStepClick}
+        className={`absolute bottom-0 right-0 z-10 cursor-pointer transition-transform duration-200 ${bounceStep ? "scale-95 translate-y-[4px]" : "hover:scale-[1.02]"}`}
+      >
         <svg viewBox="0 0 180 180" className="w-[180px] h-[180px] md:w-[200px] md:h-[200px]">
           {/* Shadow layer */}
           <path
@@ -60,13 +90,14 @@ export default function TerminalSteps() {
             fill="black"
             transform="translate(6, 6)"
           />
-          {/* Main Purple Steps Layer */}
+          {/* Main Steps Layer */}
           <path
             d="M 20 160 L 20 140 L 50 140 L 50 110 L 80 110 L 80 80 L 110 80 L 110 50 L 140 50 L 140 20 L 160 20 L 160 160 Z"
-            fill="#8b5cf6"
+            fill={stepColors[colorIndex]}
             stroke="black"
             strokeWidth="4"
             strokeLinejoin="miter"
+            className="transition-colors duration-300"
           />
         </svg>
       </div>

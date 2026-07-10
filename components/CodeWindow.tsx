@@ -1,6 +1,19 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 export default function CodeWindow() {
+  const langs = [
+    { text: "TS", bg: "bg-[#3178c6]", textCol: "text-white" },
+    { text: "JS", bg: "bg-[#f7df1e]", textCol: "text-black" },
+    { text: "PY", bg: "bg-[#3776ab]", textCol: "text-white" },
+    { text: "GO", bg: "bg-[#00add8]", textCol: "text-white" },
+  ];
+  const [langIndex, setLangIndex] = useState(0);
+
+  const cycleLang = () => {
+    setLangIndex((prev) => (prev + 1) % langs.length);
+  };
   // Generate L-shaped dot matrix dynamically
   const renderLGrid = () => {
     const dots = [];
@@ -37,12 +50,12 @@ export default function CodeWindow() {
         </div>
 
         {/* Chevron Underscore ">_" (Top-Right) */}
-        <div className="absolute top-[10px] left-[350px] text-black text-3xl font-black tracking-tighter">
+        <div className="absolute top-[10px] left-[290px] text-black text-3xl font-black tracking-tighter">
           &gt;_
         </div>
 
         {/* Code Symbol "</>" (Middle-Left) */}
-        <div className="absolute top-[45px] left-[110px] text-black text-5xl font-black">
+        <div className="absolute top-[60px] left-[100px] text-black text-5xl font-black">
           &lt;/&gt;
         </div>
 
@@ -52,8 +65,11 @@ export default function CodeWindow() {
         </div>
 
         {/* Blue TypeScript Badge "TS" (Bottom-Right) */}
-        <div className="absolute top-[70px] left-[290px] w-14 h-14 bg-[#3178c6] border-[3.5px] border-black shadow-[4px_4px_0px_#000000] flex items-center justify-center font-sans font-black text-xl text-white">
-          TS
+        <div 
+          onClick={cycleLang}
+          className={`absolute top-[70px] left-[250px] w-14 h-14 ${langs[langIndex].bg} border-[3.5px] border-black shadow-[4px_4px_0px_#000000] hover:shadow-[3px_3px_0px_#000000] hover:translate-x-[1px] hover:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] active:translate-x-[3px] active:translate-y-[3px] transition-all duration-100 flex items-center justify-center font-sans font-black text-xl ${langs[langIndex].textCol} cursor-pointer`}
+        >
+          {langs[langIndex].text}
         </div>
       </div>
 
