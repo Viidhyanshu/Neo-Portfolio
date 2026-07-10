@@ -1,58 +1,26 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const NAV_LINKS = ["HOME", "ABOUT", "PROJECTS", "SKILLS", "CONTACT"];
 
 export default function Navbar() {
   const [activeLink, setActiveLink] = useState("HOME");
-  const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  // Initialize theme on mount
-  useEffect(() => {
-    setMounted(true);
-    const isDark =
-      localStorage.getItem("theme") === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-    setDarkMode(isDark);
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const nextDark = !darkMode;
-    setDarkMode(nextDark);
-    if (nextDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
-
-  // Prevent server-side rendering mismatch for interactive pieces
-  const currentThemeClass = mounted && darkMode ? "dark" : "";
 
   return (
     <nav className="w-full max-w-7xl mx-auto px-4 py-6 md:px-8">
       {/* Outer Wrapper with Neo-Brutalist border and flat shadow */}
-      <div className="relative bg-white dark:bg-zinc-950 border-4 border-black text-black dark:text-white px-4 py-3 md:px-6 md:py-4 shadow-[6px_6px_0px_#000000] dark:shadow-[6px_6px_0px_#facc15] transition-colors duration-200">
+      <div className="relative bg-white border-4 border-black text-black px-4 py-3 md:px-6 md:py-4 shadow-[6px_6px_0px_#000000] transition-colors duration-200">
         <div className="flex items-center justify-between">
           
           {/* LOGO & BRAND SECTION */}
           <div className="flex items-center gap-4">
             {/* Logo Box */}
             <div className="relative cursor-pointer select-none group">
-              <div className="w-12 h-12 flex items-center justify-center bg-white dark:bg-zinc-800 border-[3px] border-black shadow-[3px_3px_0px_#000000] dark:shadow-[3px_3px_0px_#facc15] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] group-hover:shadow-[4px_4px_0px_#000000] dark:group-hover:shadow-[4px_4px_0px_#facc15] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all">
+              <div className="w-12 h-12 flex items-center justify-center bg-white border-[3px] border-black shadow-[3px_3px_0px_#000000] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] group-hover:shadow-[4px_4px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] transition-all">
                 {/* Trident SVG Icon */}
-                <svg viewBox="0 0 100 100" fill="currentColor" className="w-8 h-8 text-black dark:text-white">
+                <svg viewBox="0 0 100 100" fill="currentColor" className="w-8 h-8 text-black">
                   {/* Vertical stem */}
                   <rect x="47" y="30" width="6" height="50" rx="3" />
                   <circle cx="50" cy="24" r="7" />
@@ -71,29 +39,29 @@ export default function Navbar() {
 
             {/* Brand Text */}
             <div className="flex flex-col select-none">
-              <span className="font-extrabold text-xl md:text-2xl leading-none tracking-wider font-sans text-black dark:text-white uppercase">
+              <span className="font-extrabold text-xl md:text-2xl leading-none tracking-wider font-sans text-black uppercase">
                 VIDHYANSHU
               </span>
-              <span className="text-[10px] md:text-xs font-bold leading-none tracking-[0.25em] text-zinc-600 dark:text-zinc-400 mt-1 uppercase">
+              <span className="text-[10px] md:text-xs font-bold leading-none tracking-[0.25em] text-zinc-600 mt-1 uppercase">
                 KUMAR
               </span>
             </div>
           </div>
 
           {/* DESKTOP NAVIGATION LINKS */}
-          <div className="hidden lg:flex items-center gap-8 font-sans font-bold text-sm tracking-widest text-black dark:text-white">
+          <div className="hidden lg:flex items-center gap-8 font-sans font-bold text-sm tracking-widest text-black">
             {NAV_LINKS.map((link) => {
               const isActive = activeLink === link;
               return (
                 <button
                   key={link}
                   onClick={() => setActiveLink(link)}
-                  className="relative cursor-pointer select-none hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors py-1 group"
+                  className="relative cursor-pointer select-none hover:text-yellow-600 transition-colors py-1 group"
                 >
                   {link}
                   {/* Active Indicator Underline */}
                   {isActive && (
-                    <span className="absolute bottom-[-6px] left-0 right-0 h-[4px] bg-yellow-400 dark:bg-yellow-400 border border-black dark:border-zinc-800 rounded-sm" />
+                    <span className="absolute bottom-[-6px] left-0 right-0 h-[4px] bg-yellow-400 border border-black rounded-sm" />
                   )}
                   {/* Hover indicator nudge */}
                   {!isActive && (
@@ -104,14 +72,14 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* DESKTOP SOCIALS & TOGGLE */}
+          {/* DESKTOP SOCIALS ONLY (Theme Toggle Removed) */}
           <div className="hidden md:flex items-center gap-4">
             {/* GitHub Button */}
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[3px_3px_0px_#000000] dark:shadow-[3px_3px_0px_#facc15] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] dark:hover:shadow-[4px_4px_0px_#facc15] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+              className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[3px_3px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] transition-all"
               aria-label="GitHub Profile"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -124,7 +92,7 @@ export default function Navbar() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[3px_3px_0px_#000000] dark:shadow-[3px_3px_0px_#facc15] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] dark:hover:shadow-[4px_4px_0px_#facc15] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+              className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[3px_3px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] transition-all"
               aria-label="LinkedIn Profile"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -136,7 +104,7 @@ export default function Navbar() {
             <a
               href="#projects"
               onClick={() => setActiveLink("PROJECTS")}
-              className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[3px_3px_0px_#000000] dark:shadow-[3px_3px_0px_#facc15] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] dark:hover:shadow-[4px_4px_0px_#facc15] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+              className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[3px_3px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] transition-all"
               aria-label="View Code Projects"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -148,7 +116,7 @@ export default function Navbar() {
             {/* Mail Button */}
             <a
               href="mailto:contact@example.com"
-              className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[3px_3px_0px_#000000] dark:shadow-[3px_3px_0px_#facc15] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] dark:hover:shadow-[4px_4px_0px_#facc15] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+              className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[3px_3px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] transition-all"
               aria-label="Contact Email"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -156,44 +124,14 @@ export default function Navbar() {
                 <polyline points="22,6 12,13 2,6" />
               </svg>
             </a>
-
-            {/* Dark Mode Toggle Switch Capsule */}
-            <button
-              onClick={toggleDarkMode}
-              className={`w-14 h-7 border-2 border-black rounded-full relative shadow-[2px_2px_0px_#000000] dark:shadow-[2px_2px_0px_#facc15] transition-colors duration-200 cursor-pointer ${
-                darkMode ? "bg-zinc-700" : "bg-yellow-400"
-              }`}
-              aria-label="Toggle Theme"
-            >
-              <div
-                className={`w-5 h-5 bg-white border-2 border-black rounded-full absolute top-[2px] transition-all duration-200 ${
-                  darkMode ? "left-[30px]" : "left-[4px]"
-                }`}
-              />
-            </button>
           </div>
 
-          {/* MOBILE MENU TOGGLE AND THEME TOGGLE ONLY */}
+          {/* MOBILE MENU TOGGLE ONLY (Theme Toggle Removed) */}
           <div className="flex lg:hidden items-center gap-3">
-            {/* Theme Toggle switch */}
-            <button
-              onClick={toggleDarkMode}
-              className={`w-12 h-6 border-2 border-black rounded-full relative shadow-[2px_2px_0px_#000000] dark:shadow-[2px_2px_0px_#facc15] transition-colors duration-200 cursor-pointer ${
-                darkMode ? "bg-zinc-700" : "bg-yellow-400"
-              }`}
-              aria-label="Toggle Theme"
-            >
-              <div
-                className={`w-4 h-4 bg-white border-2 border-black rounded-full absolute top-[2px] transition-all duration-200 ${
-                  darkMode ? "left-[24px]" : "left-[3px]"
-                }`}
-              />
-            </button>
-
             {/* Hamburger Button */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="w-10 h-10 flex flex-col items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[2px_2px_0px_#000000] dark:shadow-[2px_2px_0px_#facc15] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+              className="w-10 h-10 flex flex-col items-center justify-center bg-white border-2 border-black text-black shadow-[2px_2px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] transition-all"
               aria-label="Toggle Navigation Menu"
             >
               {menuOpen ? (
@@ -216,7 +154,7 @@ export default function Navbar() {
 
         {/* MOBILE MENU CONTAINER DRAWER */}
         {menuOpen && (
-          <div className="lg:hidden mt-4 pt-4 border-t-2 border-dashed border-black dark:border-zinc-700 flex flex-col gap-4 font-sans font-bold text-sm tracking-wider">
+          <div className="lg:hidden mt-4 pt-4 border-t-2 border-dashed border-black flex flex-col gap-4 font-sans font-bold text-sm tracking-wider">
             {/* Nav links list */}
             <div className="flex flex-col gap-3">
               {NAV_LINKS.map((link) => {
@@ -231,7 +169,7 @@ export default function Navbar() {
                     className={`text-left py-2 px-3 border-2 border-black transition-colors ${
                       isActive
                         ? "bg-yellow-400 text-black shadow-[2px_2px_0px_#000000]"
-                        : "bg-white dark:bg-zinc-800 text-black dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                        : "bg-white text-black hover:bg-zinc-100"
                     }`}
                   >
                     {link}
@@ -246,7 +184,7 @@ export default function Navbar() {
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[2px_2px_0px_#000000] dark:shadow-[2px_2px_0px_#facc15] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+                className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[2px_2px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] transition-all"
                 aria-label="GitHub"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -258,7 +196,7 @@ export default function Navbar() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[2px_2px_0px_#000000] dark:shadow-[2px_2px_0px_#facc15] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+                className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[2px_2px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] transition-all"
                 aria-label="LinkedIn"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -272,7 +210,7 @@ export default function Navbar() {
                   setActiveLink("PROJECTS");
                   setMenuOpen(false);
                 }}
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[2px_2px_0px_#000000] dark:shadow-[2px_2px_0px_#facc15] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+                className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[2px_2px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] transition-all"
                 aria-label="Projects"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -283,7 +221,7 @@ export default function Navbar() {
 
               <a
                 href="mailto:contact@example.com"
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-zinc-800 border-2 border-black text-black dark:text-white shadow-[2px_2px_0px_#000000] dark:shadow-[2px_2px_0px_#facc15] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] dark:active:shadow-[1px_1px_0px_#facc15] transition-all"
+                className="w-10 h-10 flex items-center justify-center bg-white border-2 border-black text-black shadow-[2px_2px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#000000] transition-all"
                 aria-label="Email"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
