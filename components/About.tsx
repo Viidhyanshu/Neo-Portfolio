@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 export default function About() {
-  // State variables for interactive color cycling
+  // State variables for interactive color cycling of main elements
   const [purpleSquareColorIdx, setPurpleSquareColorIdx] = useState(0);
   const purpleSquareColors = ["bg-[#8b5cf6]", "bg-yellow-400", "bg-[#fa5b8d]", "bg-emerald-400", "bg-orange-400"];
 
@@ -18,6 +18,101 @@ export default function About() {
 
   const [lShapeColorIdx, setLShapeColorIdx] = useState(0);
   const lShapeColors = ["#fa5b8d", "#8b5cf6", "#facc15", "#10b981", "#f97316"];
+
+  // State array for 24 scattered background doodles
+  const [doodleColorIndices, setDoodleColorIndices] = useState<number[]>(Array(24).fill(0));
+  const doodleColors = [
+    "text-[#fa5b8d]",
+    "text-[#8b5cf6]",
+    "text-yellow-500",
+    "text-emerald-500",
+    "text-orange-500",
+    "text-blue-500",
+  ];
+
+  const doodleData = [
+    { type: "star", style: { top: "5%", left: "3%" }, rotate: "rotate-[12deg]" },
+    { type: "plus", style: { top: "8%", left: "20%" }, rotate: "rotate-[-5deg]" },
+    { type: "zigzag", style: { top: "25%", left: "2%" }, rotate: "rotate-[45deg]" },
+    { type: "chevron", style: { bottom: "8%", left: "5%" }, rotate: "rotate-[90deg]" },
+    { type: "x", style: { bottom: "3%", left: "18%" }, rotate: "rotate-[-20deg]" },
+    { type: "spiral", style: { top: "6%", right: "22%" }, rotate: "rotate-[15deg]" },
+    { type: "triangle", style: { top: "30%", right: "3%" }, rotate: "rotate-[35deg]" },
+    { type: "star", style: { bottom: "6%", right: "15%" }, rotate: "rotate-[-10deg]" },
+    { type: "plus", style: { bottom: "2%", right: "5%" }, rotate: "rotate-[25deg]" },
+    { type: "circle", style: { top: "12%", left: "45%" }, rotate: "rotate-[0deg]" },
+    { type: "star", style: { bottom: "12%", left: "30%" }, rotate: "rotate-[40deg]" },
+    { type: "x", style: { bottom: "14%", right: "35%" }, rotate: "rotate-[-15deg]" },
+    { type: "chevron", style: { top: "45%", left: "52%" }, rotate: "rotate-[-90deg]" },
+    { type: "plus", style: { top: "16%", left: "10%" }, rotate: "rotate-[0deg]" },
+    { type: "zigzag", style: { top: "65%", left: "45%" }, rotate: "rotate-[0deg]" },
+    { type: "spiral", style: { top: "20%", right: "38%" }, rotate: "rotate-[0deg]" },
+    { type: "circle", style: { bottom: "20%", right: "36%" }, rotate: "rotate-[0deg]" },
+    { type: "chevron", style: { top: "4%", left: "35%" }, rotate: "rotate-[180deg]" },
+    { type: "x", style: { top: "4%", right: "32%" }, rotate: "rotate-[45deg]" },
+    { type: "star", style: { top: "50%", left: "1%" }, rotate: "rotate-[-30deg]" },
+    { type: "plus", style: { top: "55%", right: "1%" }, rotate: "rotate-[10deg]" },
+    { type: "zigzag", style: { bottom: "4%", left: "50%" }, rotate: "rotate-[-10deg]" },
+    { type: "triangle", style: { bottom: "3%", left: "38%" }, rotate: "rotate-[75deg]" },
+    { type: "chevron", style: { bottom: "3%", right: "28%" }, rotate: "rotate-[45deg]" },
+  ];
+
+  const renderDoodleIcon = (type: string) => {
+    switch (type) {
+      case "star":
+        return (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M 12 0 C 12 8, 8 12, 0 12 C 8 12, 12 16, 12 24 C 12 16, 16 12, 24 12 C 16 12, 12 8, 12 0 Z" stroke="black" strokeWidth="2" />
+          </svg>
+        );
+      case "plus":
+        return (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+            <line x1="12" y1="4" x2="12" y2="20" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+          </svg>
+        );
+      case "x":
+        return (
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+            <line x1="4" y1="4" x2="16" y2="16" />
+            <line x1="16" y1="4" x2="4" y2="16" />
+          </svg>
+        );
+      case "chevron":
+        return (
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 17 13 10 6 3" />
+          </svg>
+        );
+      case "zigzag":
+        return (
+          <svg width="35" height="15" viewBox="0 0 35 15" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+            <path d="M 3 12 L 10 3 L 18 12 L 25 3 L 32 12" />
+          </svg>
+        );
+      case "spiral":
+        return (
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="M 6 18 C 2 14, 5 6, 12 6 C 19 6, 22 14, 17 20 C 12 25, 5 20, 10 14 C 15 8, 22 15, 19 20" />
+          </svg>
+        );
+      case "triangle":
+        return (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 3 21 20 3 20" stroke="black" strokeWidth="2" strokeLinejoin="round" />
+          </svg>
+        );
+      case "circle":
+        return (
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor">
+            <circle cx="11" cy="11" r="8" stroke="black" strokeWidth="2" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
 
   const socialCards = [
     {
@@ -67,9 +162,29 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black">
+    <section id="about" className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0">
+      
+      {/* Mapped Scattered Background Interactive Doodles */}
+      {doodleData.map((doodle, idx) => (
+        <div
+          key={idx}
+          style={doodle.style}
+          onClick={() => {
+            setDoodleColorIndices((prev) => {
+              const updated = [...prev];
+              updated[idx] = (updated[idx] + 1) % doodleColors.length;
+              return updated;
+            });
+          }}
+          className={`absolute ${doodleColors[doodleColorIndices[idx]]} ${doodle.rotate} cursor-pointer opacity-70 hover:opacity-100 hover:scale-125 hover:rotate-[15deg] active:scale-95 transition-all duration-100 z-0 select-none hidden md:block`}
+          title="Click to change color!"
+        >
+          {renderDoodleIcon(doodle.type)}
+        </div>
+      ))}
+
       {/* 1. Header component based on design image */}
-      <div className="w-full flex items-center justify-between gap-4 mb-16 select-none relative">
+      <div className="w-full flex items-center justify-between gap-4 mb-16 select-none relative z-10">
         {/* Left Decor: Dot matrix + Purple box */}
         <div className="hidden md:flex items-center gap-4">
           <div className="grid grid-cols-9 gap-2">
@@ -85,10 +200,31 @@ export default function About() {
         </div>
 
         {/* Center: Title box */}
-        <div className="flex flex-col items-center mx-auto">
+        <div className="flex flex-col items-center mx-auto relative overflow-visible">
+          {/* Sparkle Star Doodle (Yellow) */}
+          <svg width="30" height="30" viewBox="0 0 30 30" className="absolute top-[-28px] left-[-30px] select-none pointer-events-none text-yellow-400 z-10">
+            <path d="M 15 0 C 15 10, 10 15, 0 15 C 10 15, 15 20, 15 30 C 15 20, 20 15, 30 15 C 20 15, 15 10, 15 0 Z" fill="currentColor" stroke="black" strokeWidth="2.5" />
+          </svg>
+
+          {/* Curly Arrow Doodle (Pink) */}
+          <svg width="45" height="40" viewBox="0 0 45 40" fill="none" stroke="black" strokeWidth="2.5" className="absolute bottom-[-15px] left-[-55px] select-none pointer-events-none text-[#fa5b8d] rotate-[-10deg] z-10">
+            <path d="M 5 35 C 15 35, 15 15, 25 15 C 35 15, 38 25, 42 22" strokeLinecap="round" />
+            <path d="M 37 15 L 43 22 L 35 27" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+
+          {/* Scribble Spiral Doodle (Teal/Emerald) */}
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="black" strokeWidth="2.5" className="absolute top-[-32px] right-[-45px] select-none pointer-events-none text-emerald-400 z-10">
+            <path d="M 10 25 C 5 20, 8 10, 18 10 C 28 10, 32 20, 25 28 C 18 36, 8 28, 15 20 C 22 12, 32 22, 28 30" strokeLinecap="round" />
+          </svg>
+
+          {/* Star Sparkle 2 Doodle (Orange) */}
+          <svg width="24" height="24" viewBox="0 0 24 24" className="absolute bottom-[-12px] right-[-36px] select-none pointer-events-none text-orange-400 z-10">
+            <path d="M 12 0 C 12 8, 8 12, 0 12 C 8 12, 12 16, 12 24 C 12 16, 16 12, 24 12 C 16 12, 12 8, 12 0 Z" fill="currentColor" stroke="black" strokeWidth="2.5" />
+          </svg>
+
           <div
             onClick={() => setAboutBoxColorIdx((prev) => (prev + 1) % aboutBoxColors.length)}
-            className={`relative ${aboutBoxColors[aboutBoxColorIdx]} border-4 border-black text-black px-12 py-[29px] shadow-[6px_6px_0px_#000000] font-sans font-black text-3xl sm:text-4xl md:text-5xl tracking-widest uppercase cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-100 select-none`}
+            className={`relative ${aboutBoxColors[aboutBoxColorIdx]} border-4 border-black text-black px-12 py-[29px] shadow-[6px_6px_0px_#000000] font-sans font-black text-3xl sm:text-4xl md:text-5xl tracking-widest uppercase cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-100 select-none z-0`}
             title="Click to change color!"
           >
             ABOUT ME
@@ -108,7 +244,7 @@ export default function About() {
       </div>
 
       {/* 2. Main About Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10">
         
         {/* Left Card: Biography Description */}
         <div className="relative lg:col-span-7 bg-white border-4 border-black p-6 sm:p-8 shadow-[6px_6px_0px_#000000] text-black text-left font-mono leading-relaxed flex flex-col justify-center z-10 overflow-visible">
