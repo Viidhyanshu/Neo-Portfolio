@@ -72,12 +72,12 @@ export default function TerminalSteps() {
       </div>
 
       {/* 4. Floating Chevron ">" (Bottom-Center) */}
-      <div className="absolute bottom-[40px] left-[100px] z-20 text-black text-3xl font-black rotate-12 scale-y-125">
+      <div className="absolute bottom-[20px] left-[140px] z-20 text-black text-3xl font-black rotate-12 scale-y-125">
         &gt;
       </div>
 
       {/* 5. Floating Plus "+" (Above Staircase) */}
-      <div className="absolute top-[90px] right-[20px] md:right-[10px] z-20 text-black text-3xl font-black">
+      <div className="absolute top-[135px] right-[20px] md:right-[10px] z-20 text-black text-3xl font-black">
         +
       </div>
     </div>
