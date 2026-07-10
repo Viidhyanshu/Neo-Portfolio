@@ -26,34 +26,34 @@ export default function CodeWindow() {
   };
 
   return (
-    <div className="relative pt-[220px] w-[calc(100vw-3rem)] sm:w-[500px]">
+    <div className="relative pt-[175px] w-[calc(100vw-3rem)] sm:w-[500px]">
       
       {/* 1. Desktop Decorations (Above the Code Editor) */}
-      <div className="absolute top-0 left-0 w-full h-[200px] pointer-events-none select-none">
+      <div className="absolute top-0 left-0 w-full h-[150px] pointer-events-none select-none">
         
         {/* Plus Symbol "+" (Top-Left) */}
-        <div className="absolute top-[10px] left-[150px] text-black text-3xl font-black">
+        <div className="absolute top-[5px] left-[150px] text-black text-3xl font-black">
           +
         </div>
 
         {/* Chevron Underscore ">_" (Top-Right) */}
-        <div className="absolute top-[20px] left-[350px] text-black text-3xl font-black tracking-tighter">
+        <div className="absolute top-[10px] left-[350px] text-black text-3xl font-black tracking-tighter">
           &gt;_
         </div>
 
         {/* Code Symbol "</>" (Middle-Left) */}
-        <div className="absolute top-[75px] left-[110px] text-black text-5xl font-black">
+        <div className="absolute top-[45px] left-[110px] text-black text-5xl font-black">
           &lt;/&gt;
         </div>
 
         {/* L-Shaped Dot Grid (Middle-Left) */}
-        <div className="absolute top-[80px] left-[10px] w-[120px] h-[120px]">
+        <div className="absolute top-[50px] left-[10px] w-[120px] h-[120px]">
           {renderLGrid()}
         </div>
 
-        {/* Yellow JavaScript Badge "JS" (Bottom-Right) */}
-        <div className="absolute top-[100px] left-[290px] w-14 h-14 bg-yellow-400 border-[3.5px] border-black shadow-[4px_4px_0px_#000000] flex items-center justify-center font-sans font-black text-xl text-black">
-          JS
+        {/* Blue TypeScript Badge "TS" (Bottom-Right) */}
+        <div className="absolute top-[70px] left-[290px] w-14 h-14 bg-[#3178c6] border-[3.5px] border-black shadow-[4px_4px_0px_#000000] flex items-center justify-center font-sans font-black text-xl text-white">
+          TS
         </div>
       </div>
 
