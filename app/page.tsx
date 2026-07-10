@@ -4,6 +4,7 @@ import TerminalSteps from "@/components/TerminalSteps";
 import CommentCard from "@/components/CommentCard";
 import WhoamiCard from "@/components/WhoamiCard";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 
 export default function Home() {
   return (
@@ -43,6 +44,9 @@ export default function Home() {
           <TerminalSteps />
         </div>
       </div>
+
+      {/* About Section */}
+      <About />
     </div>
   );
 }
