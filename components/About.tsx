@@ -1,8 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function About() {
+  // State variables for interactive color cycling
+  const [purpleSquareColorIdx, setPurpleSquareColorIdx] = useState(0);
+  const purpleSquareColors = ["bg-[#8b5cf6]", "bg-yellow-400", "bg-[#fa5b8d]", "bg-emerald-400", "bg-orange-400"];
+
+  const [aboutBoxColorIdx, setAboutBoxColorIdx] = useState(0);
+  const aboutBoxColors = ["bg-white", "bg-yellow-400", "bg-[#8b5cf6]", "bg-emerald-400", "bg-[#fa5b8d]", "bg-orange-400"];
+
+  const [yellowCircleColorIdx, setYellowCircleColorIdx] = useState(0);
+  const yellowCircleColors = ["bg-yellow-400", "bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-emerald-400", "bg-orange-400"];
+
+  const [nameHighlightColorIdx, setNameHighlightColorIdx] = useState(0);
+  const nameHighlightColors = ["bg-yellow-400", "bg-emerald-400", "bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-orange-400"];
+
+  const [lShapeColorIdx, setLShapeColorIdx] = useState(0);
+  const lShapeColors = ["#fa5b8d", "#8b5cf6", "#facc15", "#10b981", "#f97316"];
+
   const socialCards = [
     {
       name: "GitHub",
@@ -21,9 +37,8 @@ export default function About() {
       href: "https://leetcode.com/u/viidhyanshu/",
       bg: "bg-[#8b5cf6]",
       icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-black">
-          <polyline points="16 18 22 12 16 6" />
-          <polyline points="8 6 2 12 8 18" />
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-black">
+          <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
         </svg>
       ),
     },
@@ -42,7 +57,7 @@ export default function About() {
       name: "Email",
       value: "viidhyanshu@gmail.com",
       href: "mailto:viidhyanshu@gmail.com",
-      bg: "bg-yellow-400",
+      bg: "bg-emerald-400",
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-black">
           <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
@@ -62,21 +77,33 @@ export default function About() {
               <div key={i} className="w-[6px] h-[6px] bg-black rounded-full" />
             ))}
           </div>
-          <div className="w-[61px] h-[61px] bg-[#8b5cf6] border-3 border-black shadow-[4px_4px_0px_#000000]" />
+          <div
+            onClick={() => setPurpleSquareColorIdx((prev) => (prev + 1) % purpleSquareColors.length)}
+            className={`w-[61px] h-[61px] ${purpleSquareColors[purpleSquareColorIdx]} border-3 border-black shadow-[4px_4px_0px_#000000] cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100`}
+            title="Click to change color!"
+          />
         </div>
 
         {/* Center: Title box */}
         <div className="flex flex-col items-center mx-auto">
-          <div className="relative bg-white border-4 border-black text-black px-8 py-3.5 shadow-[5px_5px_0px_#000000] font-sans font-black text-2xl sm:text-3xl tracking-widest uppercase">
+          <div
+            onClick={() => setAboutBoxColorIdx((prev) => (prev + 1) % aboutBoxColors.length)}
+            className={`relative ${aboutBoxColors[aboutBoxColorIdx]} border-4 border-black text-black px-12 py-[29px] shadow-[6px_6px_0px_#000000] font-sans font-black text-3xl sm:text-4xl md:text-5xl tracking-widest uppercase cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-100 select-none`}
+            title="Click to change color!"
+          >
             ABOUT ME
           </div>
-          <div className="w-24 h-2 bg-[#8b5cf6] border-2 border-black mt-2 shadow-[2px_2px_0px_#000000]" />
+          <div className="w-32 h-2.5 bg-[#8b5cf6] border-2 border-black mt-3 shadow-[2px_2px_0px_#000000]" />
         </div>
 
         {/* Right Decor: Plus + Yellow Circle */}
         <div className="hidden md:flex items-center gap-4">
           <div className="text-black text-3xl font-black">+</div>
-          <div className="w-12 h-12 rounded-full bg-yellow-400 border-3 border-black shadow-[3px_3px_0px_#000000]" />
+          <div
+            onClick={() => setYellowCircleColorIdx((prev) => (prev + 1) % yellowCircleColors.length)}
+            className={`w-[73px] h-[73px] rounded-full ${yellowCircleColors[yellowCircleColorIdx]} border-3 border-black shadow-[4px_4px_0px_#000000] cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100`}
+            title="Click to change color!"
+          />
         </div>
       </div>
 
@@ -90,16 +117,33 @@ export default function About() {
             width="240"
             height="200"
             viewBox="0 0 240 200"
-            className="absolute bottom-[-32px] left-[-32px] z-[-1] pointer-events-none select-none"
+            onClick={() => setLShapeColorIdx((prev) => (prev + 1) % lShapeColors.length)}
+            className="absolute bottom-[-32px] left-[-32px] z-[-1] pointer-events-auto cursor-pointer select-none group"
           >
+            <title>Click to change color!</title>
             {/* Shadow */}
             <path d="M 6 6 L 46 6 L 46 166 L 246 166 L 246 206 L 6 206 Z" fill="black" />
             {/* Pink Shape */}
-            <path d="M 0 0 L 40 0 L 40 160 L 240 160 L 240 200 L 0 200 Z" fill="#fa5b8d" stroke="black" strokeWidth="4" strokeLinejoin="miter" />
+            <path
+              d="M 0 0 L 40 0 L 40 160 L 240 160 L 240 200 L 0 200 Z"
+              fill={lShapeColors[lShapeColorIdx]}
+              stroke="black"
+              strokeWidth="4"
+              strokeLinejoin="miter"
+              className="group-hover:opacity-90 active:opacity-100 transition-opacity"
+            />
           </svg>
 
           <p className="mb-6 text-sm sm:text-base md:text-lg">
-            Hello! I'm <span className="bg-yellow-400 px-1.5 py-0.5 text-black font-extrabold rounded-sm select-all">Vidhyanshu Kumar</span>, a second-year student at Manipal University Jaipur with a passion for software development and problem-solving.
+            Hello! I'm{" "}
+            <span
+              onClick={() => setNameHighlightColorIdx((prev) => (prev + 1) % nameHighlightColors.length)}
+              className={`cursor-pointer ${nameHighlightColors[nameHighlightColorIdx]} px-1.5 py-0.5 text-black font-extrabold rounded-sm select-all hover:opacity-90 active:scale-95 transition-all duration-100`}
+              title="Click to change color!"
+            >
+              Vidhyanshu Kumar
+            </span>
+            , a second-year student at Manipal University Jaipur with a passion for software development and problem-solving.
           </p>
           <p className="mb-6 text-sm sm:text-base md:text-lg">
             I enjoy building innovative projects and solving complex challenges. My journey in tech has led me to explore various technologies and work on exciting projects that combine creativity with technical skills.
@@ -135,7 +179,7 @@ export default function About() {
           {/* Stairs Purple Accent under the bottom-right corner */}
           <div className="absolute bottom-[-20px] right-[-120px] z-20 pointer-events-none select-none w-[210px] h-[190px] overflow-visible">
             {/* Dot Matrix just above the tallest step */}
-            <div className="absolute top-[-56px] right-[20px] grid grid-cols-8 gap-1.5">
+            <div className="absolute top-[-36px] right-[20px] grid grid-cols-8 gap-1.5">
               {Array.from({ length: 64 }).map((_, i) => (
                 <div key={i} className="w-[3.5px] h-[3.5px] bg-black rounded-full" />
               ))}
