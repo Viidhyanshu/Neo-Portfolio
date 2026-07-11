@@ -119,7 +119,7 @@ export default function Projects() {
     </svg>
   );
 
-  // Projects definitions with 9 unique colors
+  // Projects definitions
   const projectsData: Project[] = [
     {
       id: "quantum",
@@ -130,7 +130,7 @@ export default function Projects() {
       tags: ["TypeScript", "React", "QuantumJS"],
       github: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer",
       demo: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer#readme",
-      accentBg: "bg-yellow-400", // Yellow
+      accentBg: "bg-yellow-400",
       icon: quantumIcon
     },
     {
@@ -142,7 +142,7 @@ export default function Projects() {
       tags: ["Solidity", "Web3.js", "Ethereum"],
       github: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype",
       demo: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype#readme",
-      accentBg: "bg-[#8b5cf6]", // Purple
+      accentBg: "bg-[#8b5cf6]",
       icon: trustchainIcon
     },
     {
@@ -154,7 +154,7 @@ export default function Projects() {
       tags: ["TypeScript", "Next.js", "Leaflet"],
       github: "https://github.com/Viidhyanshu/shankhcall",
       demo: "https://github.com/Viidhyanshu/shankhcall#readme",
-      accentBg: "bg-[#fa5b8d]", // Pink
+      accentBg: "bg-[#fa5b8d]",
       icon: stormIcon
     },
     {
@@ -166,7 +166,7 @@ export default function Projects() {
       tags: ["OpenCV", "MediaPipe", "Python"],
       github: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe",
       demo: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe#readme",
-      accentBg: "bg-cyan-400", // Cyan
+      accentBg: "bg-cyan-400",
       icon: keyboardKeyIcon
     },
     {
@@ -178,7 +178,7 @@ export default function Projects() {
       tags: ["HTML", "Vanilla CSS", "JavaScript"],
       github: "https://github.com/Viidhyanshu/The-coffee-shop",
       demo: "https://github.com/Viidhyanshu/The-coffee-shop#readme",
-      accentBg: "bg-orange-400", // Orange
+      accentBg: "bg-orange-400",
       icon: coffeeIcon
     },
     {
@@ -190,7 +190,7 @@ export default function Projects() {
       tags: ["Python", "FastF1", "Streamlit"],
       github: "https://github.com/Viidhyanshu/F1-Telemetry-Dashboard",
       demo: "https://github.com/Viidhyanshu/F1-Telemetry-Analytics-Dashboard#readme",
-      accentBg: "bg-emerald-400", // Emerald Green
+      accentBg: "bg-emerald-400",
       icon: f1Icon
     },
     {
@@ -202,7 +202,7 @@ export default function Projects() {
       tags: ["Next.js", "TypeScript", "Drizzle ORM", "Tailwind CSS"],
       github: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt",
       demo: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt#readme",
-      accentBg: "bg-fuchsia-400", // Fuchsia Pink
+      accentBg: "bg-fuchsia-400",
       icon: keyIcon
     },
     {
@@ -214,7 +214,7 @@ export default function Projects() {
       tags: ["Next.js", "React", "Tailwind CSS", "Shadcn UI"],
       github: "https://github.com/Viidhyanshu/CS-Website",
       demo: "https://github.com/Viidhyanshu/CS-Website#readme",
-      accentBg: "bg-lime-400", // Lime Green
+      accentBg: "bg-lime-400",
       icon: browserIcon
     },
     {
@@ -226,7 +226,7 @@ export default function Projects() {
       tags: ["Next.js", "React", "Python", "Solidity"],
       github: "https://github.com/Viidhyanshu",
       demo: "",
-      accentBg: "bg-sky-400", // Sky Blue
+      accentBg: "bg-sky-400",
       icon: githubIcon,
       buttonText: "MORE ON GITHUB"
     }
@@ -238,6 +238,69 @@ export default function Projects() {
       ref={sectionRef}
       className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0"
     >
+      {/* Background Coding Doodles (Outer Margins) */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-visible z-0 opacity-[0.28] hidden lg:block">
+        {/* === LEFT MARGIN DOODLES === */}
+        <div className="absolute top-[10%] left-[-100px] xl:left-[-180px] font-mono text-base xl:text-lg text-black font-extrabold rotate-6">
+          {"const [state, setState] = useState(null);"}
+        </div>
+        <div className="absolute top-[22%] left-[-80px] xl:left-[-140px] font-mono text-3xl xl:text-4xl text-black font-black rotate-45">
+          {"</>"}
+        </div>
+        <div className="absolute top-[35%] left-[-110px] xl:left-[-200px] font-mono text-base xl:text-lg text-black font-extrabold -rotate-12">
+          {"git commit -m 'feat: initial'"}
+        </div>
+        <div className="absolute top-[48%] left-[-90px] xl:left-[-160px] font-mono text-lg xl:text-xl text-black font-extrabold -rotate-45">
+          {"console.log('Brutalist!');"}
+        </div>
+        <div className="absolute top-[62%] left-[-100px] xl:left-[-180px] font-mono text-base xl:text-lg text-black font-bold rotate-12">
+          {"await fetch('/api/projects');"}
+        </div>
+        <div className="absolute top-[75%] left-[-120px] xl:left-[-220px] font-mono text-lg xl:text-xl text-black font-extrabold rotate-12">
+          {"  return <ProjectsGrid />;"}
+        </div>
+        <div className="absolute top-[88%] left-[-80px] xl:left-[-140px] font-mono text-lg xl:text-xl text-black font-black -rotate-12">
+          {"export default Projects;"}
+        </div>
+
+        {/* === RIGHT MARGIN DOODLES === */}
+        <div className="absolute top-[12%] right-[-100px] xl:right-[-180px] font-mono text-base xl:text-lg text-black font-extrabold -rotate-6">
+          {"import { useEffect } from 'react';"}
+        </div>
+        <div className="absolute top-[25%] right-[-80px] xl:right-[-140px] font-mono text-3xl xl:text-4xl text-black font-black opacity-70 -rotate-12">
+          {"&&"}
+        </div>
+        <div className="absolute top-[38%] right-[-90px] xl:right-[-160px] font-mono text-lg xl:text-xl text-black font-black">
+          {"npm run dev"}
+        </div>
+        <div className="absolute top-[52%] right-[-80px] xl:right-[-140px] font-mono text-3xl xl:text-4xl text-black font-black opacity-70 rotate-45">
+          {"=>"}
+        </div>
+        <div className="absolute top-[65%] right-[-100px] xl:right-[-180px] font-mono text-2xl xl:text-3xl text-black font-black opacity-60">
+          {"fn()"}
+        </div>
+        <div className="absolute top-[78%] right-[-80px] xl:right-[-140px] font-mono text-3xl xl:text-4xl text-black font-black opacity-60 rotate-90">
+          {"||"}
+        </div>
+        <div className="absolute top-[90%] right-[-110px] xl:right-[-200px] font-mono text-base xl:text-lg text-black font-extrabold -rotate-12">
+          {"npm run build --turbo"}
+        </div>
+
+        {/* Floating background markers closer to grid edge */}
+        <div className="absolute top-[18%] left-[-20px] font-mono text-4xl text-black font-black opacity-75 rotate-12">
+          {";"}
+        </div>
+        <div className="absolute top-[42%] right-[-10px] font-mono text-3xl text-black font-black opacity-75">
+          {"{"}
+        </div>
+        <div className="absolute bottom-[20%] left-[-30px] font-mono text-4xl text-black font-black opacity-75 -rotate-45">
+          {"{"}
+        </div>
+        <div className="absolute bottom-[35%] right-[-20px] font-mono text-4xl text-black font-black opacity-75 rotate-12">
+          {"}"}
+        </div>
+      </div>
+
       {/* HEADER COMPONENT */}
       <div
         className={`w-full flex items-center justify-between gap-4 mb-16 select-none relative z-10 transition-all duration-700 ease-out transform ${
