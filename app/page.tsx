@@ -7,7 +7,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import GitHubContributions from "@/components/contributions";
-import Skills from "@/components/Skills";
+import Skills from "@/components/skills";
 
 export default function Home() {
   return (

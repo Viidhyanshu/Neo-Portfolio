@@ -65,8 +65,8 @@ export default function ContributionsSection() {
         {LEFT_DOODLES.map((d, i) => (
           <div
             key={`left-${i}`}
-            className={`absolute font-mono font-extrabold text-black ${d.size} ${d.rotate}`}
-            style={{ top: d.top, left: "-160px" }}
+            className={`absolute font-mono font-extrabold text-black ${d.size} ${d.rotate} left-[-60px] xl:left-[-140px]`}
+            style={{ top: d.top }}
           >
             {d.text}
           </div>
@@ -76,8 +76,8 @@ export default function ContributionsSection() {
         {RIGHT_DOODLES.map((d, i) => (
           <div
             key={`right-${i}`}
-            className={`absolute font-mono font-extrabold text-black ${d.size} ${d.rotate}`}
-            style={{ top: d.top, right: "-160px" }}
+            className={`absolute font-mono font-extrabold text-black ${d.size} ${d.rotate} right-[-60px] xl:right-[-140px]`}
+            style={{ top: d.top }}
           >
             {d.text}
           </div>
