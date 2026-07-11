@@ -1,12 +1,39 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const NAV_LINKS = ["HOME", "ABOUT", "PROJECTS", "SKILLS", "CONTACT"];
 
 export default function Navbar() {
   const [activeLink, setActiveLink] = useState("HOME");
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const sectionIds = ["home", "about", "projects", "skills", "contact"];
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: "-30% 0px -30% 0px",
+      threshold: 0.1,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id.toUpperCase());
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav className="sticky top-0 w-full max-w-7xl mx-auto px-4 py-2 sm:py-6 md:px-8 z-50">

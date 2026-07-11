@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DOODLE_COLORS, DOODLE_DATA } from "./constants";
 import { renderDoodleIcon } from "./renderDoodleIcon";
 
@@ -10,8 +10,14 @@ interface SkillDoodlesProps {
 
 export default function SkillDoodles({ isVisible }: SkillDoodlesProps) {
   const [doodleColorIndices, setDoodleColorIndices] = useState<number[]>(() =>
-    Array.from({ length: DOODLE_DATA.length }, () => Math.floor(Math.random() * DOODLE_COLORS.length))
+    Array.from({ length: DOODLE_DATA.length }, () => 0)
   );
+
+  useEffect(() => {
+    setDoodleColorIndices(
+      Array.from({ length: DOODLE_DATA.length }, () => Math.floor(Math.random() * DOODLE_COLORS.length))
+    );
+  }, []);
 
   return (
     <>

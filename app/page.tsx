@@ -16,7 +16,7 @@ export default function Home() {
       <Navbar />
       
       {/* Canvas Area: Stacked on mobile, Absolute float on desktop */}
-      <div className="flex-1 w-full px-4 md:px-8 pb-12 lg:pb-0 relative flex flex-col lg:block justify-center items-center gap-12 lg:min-h-[720px]">
+      <div id="home" className="flex-1 w-full px-4 md:px-8 pb-12 lg:pb-0 relative flex flex-col lg:block justify-center items-center gap-12 lg:min-h-[720px] scroll-mt-[100px] md:scroll-mt-[140px]">
         {/* Top/Center on Desktop, First in Stack on Mobile: Hero Section */}
         <div className="lg:absolute lg:top-[45px] lg:left-1/2 lg:-translate-x-1/2 z-30">
           <Hero />

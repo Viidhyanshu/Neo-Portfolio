@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface ContactHeaderProps {
   isVisible: boolean;
@@ -11,54 +11,73 @@ const CIRCLE_COLORS = ["bg-yellow-400", "bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-emer
 const TITLE_COLORS  = ["bg-white", "bg-yellow-400", "bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-emerald-400"];
 
 const DOODLE_COLORS = [
-  "text-[#fa5b8d]",
   "text-[#8b5cf6]",
-  "text-yellow-500",
-  "text-emerald-500",
-  "text-orange-500",
-  "text-blue-500",
+  "text-[#fa5b8d]",
+  "text-yellow-400",
+  "text-emerald-400",
+  "text-orange-400"
 ];
 
-const HEADER_DOODLES = [
-  { type: "star", style: { top: "-10px", left: "10px" }, rotate: "rotate-[12deg]" },
-  { type: "plus", style: { top: "68px", left: "95px" }, rotate: "rotate-[25deg]" },
-  { type: "chevron", style: { top: "-25px", left: "34%" }, rotate: "rotate-[-90deg]" },
-  { type: "plus", style: { top: "-20px", right: "34%" }, rotate: "rotate-[45deg]" },
-  { type: "circle", style: { top: "25px", right: "120px" }, rotate: "rotate-[0deg]" },
-  { type: "spiral", style: { bottom: "-45px", left: "48%" }, rotate: "rotate-[15deg]" },
+interface HeaderDoodle {
+  type: "cross" | "plus" | "triangle" | "circle" | "zigzag";
+  style: React.CSSProperties;
+  rotate?: string;
+}
+
+const HEADER_DOODLES: HeaderDoodle[] = [
+  {
+    type: "cross",
+    style: { top: "-10px", left: "15%" },
+    rotate: "rotate-12",
+  },
+  {
+    type: "plus",
+    style: { top: "-40px", left: "35%" },
+    rotate: "rotate-45",
+  },
+  {
+    type: "zigzag",
+    style: { top: "-20px", left: "65%" },
+  },
+  {
+    type: "circle",
+    style: { top: "-5px", left: "80%" },
+  },
+  {
+    type: "triangle",
+    style: { top: "-40px", left: "92%" },
+    rotate: "-rotate-12",
+  },
 ];
 
 const renderDoodleIcon = (type: string) => {
   switch (type) {
-    case "star":
+    case "cross":
       return (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M 12 0 C 12 8, 8 12, 0 12 C 8 12, 12 16, 12 24 C 12 16, 16 12, 24 12 C 16 12, 12 8, 12 0 Z" stroke="black" strokeWidth="2" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-6 h-6">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       );
     case "plus":
       return (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-          <line x1="12" y1="4" x2="12" y2="20" />
-          <line x1="4" y1="12" x2="20" y2="12" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-7 h-7">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
         </svg>
       );
-    case "chevron":
+    case "zigzag":
       return (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="6 17 13 10 6 3" />
+        <svg width="40" height="15" viewBox="0 0 40 15" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+          <path d="M 3 12 L 11 3 L 19 12 L 27 3 L 35 12" />
         </svg>
       );
     case "circle":
+      return <div className="w-5 h-5 rounded-full border-3 border-black bg-white" />;
+    case "triangle":
       return (
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor">
-          <circle cx="11" cy="11" r="8" stroke="black" strokeWidth="2" />
-        </svg>
-      );
-    case "spiral":
-      return (
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <path d="M 6 18 C 2 14, 5 6, 12 6 C 19 6, 22 14, 17 20 C 12 25, 5 20, 10 14 C 15 8, 22 15, 19 20" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-7 h-7">
+          <polygon points="12,3 2,21 22,21" strokeLinejoin="round" />
         </svg>
       );
     default:
@@ -72,8 +91,14 @@ export default function ContactHeader({ isVisible }: ContactHeaderProps) {
   const [titleIdx, setTitleIdx] = useState(0);
 
   const [doodleColorIndices, setDoodleColorIndices] = useState<number[]>(() =>
-    Array.from({ length: HEADER_DOODLES.length }, () => Math.floor(Math.random() * DOODLE_COLORS.length))
+    Array.from({ length: HEADER_DOODLES.length }, () => 0)
   );
+
+  useEffect(() => {
+    setDoodleColorIndices(
+      Array.from({ length: HEADER_DOODLES.length }, () => Math.floor(Math.random() * DOODLE_COLORS.length))
+    );
+  }, []);
 
   return (
     <div className="w-full relative select-none z-10 mb-10 overflow-visible">
