@@ -27,12 +27,12 @@ export default function ContactFooter() {
         </div>
 
         {/* Right Step Accent shape */}
-        <div className="absolute right-6 bottom-4 select-none pointer-events-none w-[45px] h-[40px] overflow-visible hidden sm:block">
-          <svg width="45" height="40" viewBox="0 0 45 40">
+        <div className="absolute right-8 bottom-3 select-none pointer-events-none w-[90px] h-[80px] overflow-visible hidden sm:block">
+          <svg width="90" height="80" viewBox="0 0 90 80">
             {/* Steps Shadow */}
-            <path d="M 5 35 L 5 25 L 20 25 L 20 15 L 35 15 L 35 35 Z" fill="black" transform="translate(2, 2)" />
+            <path d="M 10 70 L 10 50 L 40 50 L 40 30 L 70 30 L 70 70 Z" fill="black" transform="translate(4, 4)" />
             {/* Steps Shape (Pink) */}
-            <path d="M 5 35 L 5 25 L 20 25 L 20 15 L 35 15 L 35 35 Z" fill="#fa5b8d" stroke="black" strokeWidth="2.5" />
+            <path d="M 10 70 L 10 50 L 40 50 L 40 30 L 70 30 L 70 70 Z" fill="#fa5b8d" stroke="black" strokeWidth="4" />
           </svg>
         </div>
       </div>

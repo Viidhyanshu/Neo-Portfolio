@@ -28,7 +28,7 @@ function ContactCard({ card, index, isVisible }: { card: ContactCardInfo; index:
       rel="noopener noreferrer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative bg-white border-3 border-black p-6 flex flex-col items-center justify-center text-center transition-all duration-700 ease-out transform cursor-pointer ${
+      className={`relative bg-black border-3 border-black p-6 flex flex-col items-center justify-center text-center transition-all duration-700 ease-out transform cursor-pointer ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ transitionDelay: `${index * 120}ms` }}
@@ -51,7 +51,7 @@ function ContactCard({ card, index, isVisible }: { card: ContactCardInfo; index:
       </div>
 
       {/* Subtext Username/Address */}
-      <div className="font-mono text-xs font-bold text-zinc-800 break-all px-2">
+      <div className="font-mono text-xs font-bold text-black break-all px-2">
         {card.value}
       </div>
     </a>

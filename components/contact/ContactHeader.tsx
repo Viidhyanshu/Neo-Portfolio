@@ -10,13 +10,94 @@ const SQUARE_COLORS = ["bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-yellow-400", "bg-emer
 const CIRCLE_COLORS = ["bg-yellow-400", "bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-emerald-400", "bg-orange-400"];
 const TITLE_COLORS  = ["bg-white", "bg-yellow-400", "bg-[#8b5cf6]", "bg-[#fa5b8d]", "bg-emerald-400"];
 
+const DOODLE_COLORS = [
+  "text-[#fa5b8d]",
+  "text-[#8b5cf6]",
+  "text-yellow-500",
+  "text-emerald-500",
+  "text-orange-500",
+  "text-blue-500",
+];
+
+const HEADER_DOODLES = [
+  { type: "star", style: { top: "-10px", left: "10px" }, rotate: "rotate-[12deg]" },
+  { type: "plus", style: { top: "68px", left: "95px" }, rotate: "rotate-[25deg]" },
+  { type: "chevron", style: { top: "-25px", left: "34%" }, rotate: "rotate-[-90deg]" },
+  { type: "plus", style: { top: "-20px", right: "34%" }, rotate: "rotate-[45deg]" },
+  { type: "circle", style: { top: "25px", right: "120px" }, rotate: "rotate-[0deg]" },
+  { type: "spiral", style: { bottom: "-45px", left: "48%" }, rotate: "rotate-[15deg]" },
+];
+
+const renderDoodleIcon = (type: string) => {
+  switch (type) {
+    case "star":
+      return (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M 12 0 C 12 8, 8 12, 0 12 C 8 12, 12 16, 12 24 C 12 16, 16 12, 24 12 C 16 12, 12 8, 12 0 Z" stroke="black" strokeWidth="2" />
+        </svg>
+      );
+    case "plus":
+      return (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+          <line x1="12" y1="4" x2="12" y2="20" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+        </svg>
+      );
+    case "chevron":
+      return (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="6 17 13 10 6 3" />
+        </svg>
+      );
+    case "circle":
+      return (
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor">
+          <circle cx="11" cy="11" r="8" stroke="black" strokeWidth="2" />
+        </svg>
+      );
+    case "spiral":
+      return (
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          <path d="M 6 18 C 2 14, 5 6, 12 6 C 19 6, 22 14, 17 20 C 12 25, 5 20, 10 14 C 15 8, 22 15, 19 20" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+};
+
 export default function ContactHeader({ isVisible }: ContactHeaderProps) {
   const [lSqIdx, setLSqIdx] = useState(0);
   const [rCircIdx, setRCircIdx] = useState(0);
   const [titleIdx, setTitleIdx] = useState(0);
 
+  const [doodleColorIndices, setDoodleColorIndices] = useState<number[]>(() =>
+    Array.from({ length: HEADER_DOODLES.length }, () => Math.floor(Math.random() * DOODLE_COLORS.length))
+  );
+
   return (
     <div className="w-full relative select-none z-10 mb-10 overflow-visible">
+      {/* ── Heading shape doodles ── */}
+      {HEADER_DOODLES.map((doodle, idx) => (
+        <div
+          key={idx}
+          style={doodle.style}
+          onClick={() => {
+            setDoodleColorIndices((prev) => {
+              const updated = [...prev];
+              updated[idx] = (updated[idx] + 1) % DOODLE_COLORS.length;
+              return updated;
+            });
+          }}
+          className={`absolute ${DOODLE_COLORS[doodleColorIndices[idx]]} ${
+            doodle.rotate
+          } cursor-pointer opacity-70 hover:opacity-100 hover:scale-125 hover:rotate-[15deg] active:scale-95 transition-all duration-100 z-10 select-none pointer-events-auto hidden lg:block`}
+          title="Click to cycle color!"
+        >
+          {renderDoodleIcon(doodle.type)}
+        </div>
+      ))}
+
       {/* ── Background Decors scattered near heading ── */}
       {/* Left Decor: Dot matrix + Clickable Purple box */}
       <div className="absolute top-0 left-0 hidden lg:flex items-center gap-4 z-10">
