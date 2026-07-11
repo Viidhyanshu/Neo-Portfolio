@@ -4,7 +4,7 @@ import TerminalSteps from "@/components/TerminalSteps";
 import CommentCard from "@/components/CommentCard";
 import WhoamiCard from "@/components/WhoamiCard";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
+import About from "@/components/about";
 import Projects from "@/components/Projects";
 import GitHubContributions from "@/components/contributions";
 import Skills from "@/components/skills";
