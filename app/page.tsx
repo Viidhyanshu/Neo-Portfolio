@@ -6,6 +6,7 @@ import WhoamiCard from "@/components/WhoamiCard";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
+import GitHubContributions from "@/components/GitHubContributions";
 
 export default function Home() {
   return (
@@ -51,6 +52,9 @@ export default function Home() {
 
       {/* Projects Section */}
       <Projects />
+
+      {/* GitHub Contributions Section */}
+      <GitHubContributions />
     </div>
   );
 }
