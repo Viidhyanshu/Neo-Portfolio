@@ -6,7 +6,7 @@ import WhoamiCard from "@/components/WhoamiCard";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
-import GitHubContributions from "@/components/GitHubContributions";
+import GitHubContributions from "@/components/contributions";
 
 export default function Home() {
   return (
