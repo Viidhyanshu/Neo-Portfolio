@@ -8,6 +8,7 @@ import About from "@/components/about";
 import Projects from "@/components/Projects";
 import GitHubContributions from "@/components/contributions";
 import Skills from "@/components/skills";
+import ContactSection from "@/components/contact";
 
 export default function Home() {
   return (
@@ -59,6 +60,9 @@ export default function Home() {
 
       {/* Skills Section */}
       <Skills />
+
+      {/* Get In Touch Section */}
+      <ContactSection />
     </div>
   );
 }
