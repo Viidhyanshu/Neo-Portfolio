@@ -12,7 +12,7 @@ import ContactSection from "@/components/contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen relative overflow-x-hidden">
+    <div className="flex flex-col min-h-screen relative">
       <Navbar />
       
       {/* Canvas Area: Stacked on mobile, Absolute float on desktop */}

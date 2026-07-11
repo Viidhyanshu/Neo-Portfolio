@@ -23,7 +23,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0"
+      className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0 scroll-mt-[100px] md:scroll-mt-[140px]"
     >
       {/* Scattered background shape doodles */}
       <SkillDoodles isVisible={isVisible} />

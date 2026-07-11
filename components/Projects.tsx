@@ -51,7 +51,7 @@ export default function Projects() {
 
   // SVG Icons
   const quantumIcon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-12 h-12 text-black">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-black">
       <circle cx="12" cy="12" r="3" fill="currentColor" />
       <ellipse cx="12" cy="12" rx="9" ry="3" stroke="currentColor" className="rotate-45 transform origin-center" />
       <ellipse cx="12" cy="12" rx="9" ry="3" stroke="currentColor" className="-rotate-45 transform origin-center" />
@@ -59,20 +59,20 @@ export default function Projects() {
   );
 
   const trustchainIcon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-12 h-12 text-black rotate-45">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-black rotate-45">
       <path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 0 1 0 10h-2M8 12h8" strokeLinecap="round" />
     </svg>
   );
 
   const stormIcon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-12 h-12 text-black">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-black">
       <path d="M18 10h-.7A5.5 5.5 0 0 0 6.5 10H6a4 4 0 0 0 0 8h12a4.5 4.5 0 0 0 0-9z" strokeLinecap="round" strokeLinejoin="round" fill="white" />
       <path d="M11.5 12l-2.5 4.5h3l-1.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 
   const keyboardKeyIcon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-11 h-11 text-black">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-black">
       <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" fill="white" />
       <rect x="5" y="5" width="14" height="12" rx="1.5" stroke="currentColor" />
       <text x="12" y="14" textAnchor="middle" fontSize="9" fontWeight="bold" fontFamily="monospace" fill="black" stroke="none">
@@ -82,14 +82,14 @@ export default function Projects() {
   );
 
   const coffeeIcon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-12 h-12 text-black">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-black">
       <path d="M18 8h1a3 3 0 0 1 0 6h-1M4 8h14v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M6 2v2M10 2v2M14 2v2" strokeLinecap="round" />
     </svg>
   );
 
   const f1Icon = (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 text-black">
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-black">
       <rect x="3" y="12" width="4" height="9" rx="0.5" />
       <rect x="10" y="7" width="4" height="14" rx="0.5" />
       <rect x="17" y="3" width="4" height="18" rx="0.5" />
@@ -97,14 +97,14 @@ export default function Projects() {
   );
 
   const keyIcon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-11 h-11 text-black">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-black">
       <circle cx="7.5" cy="15.5" r="4.5" stroke="currentColor" fill="white" />
       <path d="M11 12l9-9M16.5 6.5L19 9M13.5 9.5L16 12" strokeLinecap="round" />
     </svg>
   );
 
   const browserIcon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-11 h-11 text-black">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-black">
       <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" fill="white" />
       <line x1="2" y1="8" x2="22" y2="8" stroke="currentColor" />
       <circle cx="5" cy="5.5" r="0.8" fill="currentColor" stroke="none" />
@@ -114,7 +114,7 @@ export default function Projects() {
   );
 
   const githubIcon = (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-11 h-11 text-black">
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-black">
       <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
     </svg>
   );
@@ -236,7 +236,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0"
+      className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0 scroll-mt-[100px] md:scroll-mt-[140px]"
     >
       {/* Background Coding Doodles (Outer Margins) */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-visible z-0 opacity-[0.28] hidden lg:block">
@@ -355,7 +355,7 @@ export default function Projects() {
       </div>
 
       {/* 3x3 DETAILS PROJECTS GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10 items-stretch">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8 relative z-10 items-stretch">
         {projectsData.map((project, idx) => (
           <ProjectCard
             key={project.id}

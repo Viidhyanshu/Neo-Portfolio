@@ -73,14 +73,20 @@ export default function Hero() {
       {/* 4. Action Buttons */}
       <div className="flex flex-wrap items-center justify-center gap-4 mt-8 lg:translate-x-[85px] z-10">
         {/* View Projects */}
-        <button className="bg-[#8b5cf6] border-3 border-black px-6 py-3 shadow-[4px_4px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all text-black font-mono font-black text-sm sm:text-base tracking-wider uppercase flex items-center gap-1 cursor-pointer">
+        <a
+          href="#projects"
+          className="bg-[#8b5cf6] border-3 border-black px-6 py-3 shadow-[4px_4px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all text-black font-mono font-black text-sm sm:text-base tracking-wider uppercase flex items-center gap-1 cursor-pointer"
+        >
           &gt;_ View Projects
-        </button>
+        </a>
 
         {/* Get in Touch */}
-        <button className="bg-white border-3 border-black px-6 py-3 shadow-[4px_4px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all text-black font-mono font-black text-sm sm:text-base tracking-wider uppercase flex items-center gap-1 cursor-pointer">
+        <a
+          href="#contact"
+          className="bg-white border-3 border-black px-6 py-3 shadow-[4px_4px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all text-black font-mono font-black text-sm sm:text-base tracking-wider uppercase flex items-center gap-1 cursor-pointer"
+        >
           Get In Touch <span>&#x2197;</span>
-        </button>
+        </a>
       </div>
 
       {/* 5. Desktop Accent Overlay Decorations (Visible on Widescreen) */}

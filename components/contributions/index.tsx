@@ -57,7 +57,7 @@ export default function ContributionsSection() {
     <section
       id="contributions"
       ref={sectionRef}
-      className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0"
+      className="w-full max-w-7xl mx-auto px-4 py-20 md:px-8 border-t-4 border-black relative overflow-visible z-0 scroll-mt-[100px] md:scroll-mt-[140px]"
     >
       <div className="absolute inset-0 pointer-events-none select-none overflow-visible z-0 opacity-[0.28] hidden lg:block">
 

@@ -9,7 +9,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full max-w-7xl mx-auto px-4 py-6 md:px-8">
+    <nav className="sticky top-0 w-full max-w-7xl mx-auto px-4 py-2 sm:py-6 md:px-8 z-50">
       {/* Outer Wrapper with Neo-Brutalist border and flat shadow */}
       <div className="relative bg-white border-4 border-black text-black px-4 py-3 md:px-6 md:py-4 shadow-[6px_6px_0px_#000000] transition-colors duration-200">
         <div className="flex items-center justify-between">
@@ -19,21 +19,7 @@ export default function Navbar() {
             {/* Logo Box */}
             <div className="relative cursor-pointer select-none group">
               <div className="w-12 h-12 flex items-center justify-center bg-white border-[3px] border-black shadow-[3px_3px_0px_#000000] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] group-hover:shadow-[4px_4px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000000] transition-all">
-                {/* Trident SVG Icon */}
-                <svg viewBox="0 0 100 100" fill="currentColor" className="w-8 h-8 text-black">
-                  {/* Vertical stem */}
-                  <rect x="47" y="30" width="6" height="50" rx="3" />
-                  <circle cx="50" cy="24" r="7" />
-                  {/* Left fork */}
-                  <path d="M 47 65 C 32 65 32 50 32 42 L 32 35" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
-                  <circle cx="32" cy="28" r="6" />
-                  {/* Right fork */}
-                  <path d="M 53 65 C 68 65 68 50 68 42 L 68 35" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
-                  <circle cx="68" cy="28" r="6" />
-                  {/* Symmetrical dots */}
-                  <circle cx="41" cy="50" r="4.5" />
-                  <circle cx="59" cy="50" r="4.5" />
-                </svg>
+                <img src="/icon.png" alt="Logo" className="w-8 h-8 object-contain" />
               </div>
             </div>
 
