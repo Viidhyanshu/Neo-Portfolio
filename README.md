@@ -37,14 +37,9 @@
 
 <br>
 
-[![GitHub stars](https://img.shields.io/github/stars/Viidhyanshu/Neo-Portfolio?style=flat-square&color=yellow&logo=github)](https://github.com/Viidhyanshu/Neo-Portfolio)
-[![GitHub forks](https://img.shields.io/github/forks/Viidhyanshu/Neo-Portfolio?style=flat-square&color=8b5cf6&logo=github)](https://github.com/Viidhyanshu/Neo-Portfolio)
-[![GitHub last commit](https://img.shields.io/github/last-commit/Viidhyanshu/Neo-Portfolio?style=flat-square&color=fa5b8d)](https://github.com/Viidhyanshu/Neo-Portfolio)
-[![License](https://img.shields.io/badge/license-MIT-10b981?style=flat-square)](LICENSE)
 
-<br>
 
-[**✦ Live Demo**](#) · [**⚙ Installation**](#-quick-start) · [**📐 Architecture**](#-architecture) · [**🎨 Design System**](#-design-system) · [**🤝 Contribute**](#-contributing)
+[**✦ Live Demo**](https://vidhyanshu.vercel.app) · [**⚙ Installation**](#-quick-start) · [**📐 Architecture**](#-architecture) · [**🎨 Design System**](#-design-system) · [**🤝 Contribute**](#-contributing)
 
 </div>
 
@@ -60,7 +55,7 @@
 
 > *"It's a portfolio that looks like it was designed by a developer who actually enjoys design."*
 
-**Neo** is a personal developer portfolio built around the **Neo-Brutalism** design movement. Not your average clean-minimal-white-space portfolio — this one has **personality**.
+**Neo** is a personal developer portfolio built around the **Neo-Brutalism** design movement. Not your average clean-minimal-white-space portfolio, this one has **personality**.
 
 <table>
 <tr>
