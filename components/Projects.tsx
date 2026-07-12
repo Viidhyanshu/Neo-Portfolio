@@ -122,35 +122,11 @@ export default function Projects() {
   // Projects definitions
   const projectsData: Project[] = [
     {
-      id: "quantum",
-      indexStr: "01",
-      title: "Quantum Circuit Visualizer",
-      category: "TOOLS",
-      description: "A premium, high-impact tool for building and visualizing quantum circuits with interactive gate placement and measurement results.",
-      tags: ["TypeScript", "React", "QuantumJS"],
-      github: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer",
-      demo: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer#readme",
-      accentBg: "bg-yellow-400",
-      icon: quantumIcon
-    },
-    {
-      id: "trustchain",
-      indexStr: "02",
-      title: "TrustChain Microfinance Grid",
-      category: "SYSTEMS",
-      description: "A microfinance grid prototype built with blockchain technology for secure and transparent financial transactions.",
-      tags: ["Solidity", "Web3.js", "Ethereum"],
-      github: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype",
-      demo: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype#readme",
-      accentBg: "bg-[#8b5cf6]",
-      icon: trustchainIcon
-    },
-    {
       id: "shankhcall",
-      indexStr: "03",
+      indexStr: "01",
       title: "shankhcall",
       category: "WEB APPS",
-      description: "A communication application project focusing on seamless connectivity and user experience.",
+      description: "A comprehensive, multilingual disaster monitoring and reporting platform that provides unified citizen + social hazard intelligence for both Ocean and Forest disasters. Built with real-time mapping, sentiment and analysis.",
       tags: ["TypeScript", "Next.js", "Leaflet"],
       github: "https://github.com/Viidhyanshu/shankhcall",
       demo: "https://github.com/Viidhyanshu/shankhcall#readme",
@@ -158,11 +134,71 @@ export default function Projects() {
       icon: stormIcon
     },
     {
-      id: "on-air-kbd",
+      id: "f1-data",
+      indexStr: "02",
+      title: "F1 Telemetry Analytics Dashboard",
+      category: "SYSTEMS",
+      description: "F1 Telemetry Analytics Dashboard is a personal project that visualizes Formula 1 telemetry using Python, Streamlit, and FastF1. It turns raw race data into interactive insights like racing lines, speed heatmaps, braking zones, and driver comparisons making complex motorsport data intuitive, visual, and engaging to explore.",
+      tags: ["Python", "FastF1", "Streamlit"],
+      github: "https://github.com/Viidhyanshu/F1-Telemetry-Dashboard",
+      demo: "https://github.com/Viidhyanshu/F1-Telemetry-Analytics-Dashboard#readme",
+      accentBg: "bg-emerald-400",
+      icon: f1Icon
+    },
+    {
+      id: "cs-website",
+      indexStr: "03",
+      title: "IEEE CS Official Website",
+      category: "WEB APPS",
+      description: "IEEE CS Official Website is a full-stack web platform developed for the IEEE Computer Society Student Chapter. It features dynamic event management, registration forms, blogs, team profiles, and responsive interfaces to enhance the chapter's digital presence and student engagement.",
+      tags: ["Next.js", "React", "Tailwind CSS", "Shadcn UI"],
+      github: "https://github.com/Viidhyanshu/CS-Website",
+      demo: "https://github.com/Viidhyanshu/CS-Website#readme",
+      accentBg: "bg-lime-400",
+      icon: browserIcon
+    },
+    {
+      id: "quantum",
       indexStr: "04",
+      title: "Quantum Circuit Visualizer",
+      category: "TOOLS",
+      description: "Quantum Circuit Visualizer is an interactive web application that lets users build quantum circuits visually, simulate them, and observe the probability distributions of measurement outcomes in real time.",
+      tags: ["TypeScript", "React", "QuantumJS"],
+      github: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer",
+      demo: "https://github.com/Viidhyanshu/Quantum-Circuit-Visualizer#readme",
+      accentBg: "bg-yellow-400",
+      icon: quantumIcon
+    },
+    {
+      id: "cascade-hunt",
+      indexStr: "05",
+      title: "Cascade Cryptic Hunt",
+      category: "CREATIVE",
+      description: "Cascade Cryptic Hunt is a full-stack gaming platform built using Next.js that transforms traditional puzzle hunts into an engaging digital experience. It combines progressive clue decoding, secure authentication, and persistent game state to deliver seamless, interactive gameplay.",
+      tags: ["Next.js", "TypeScript", "Drizzle ORM", "Tailwind CSS"],
+      github: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt",
+      demo: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt#readme",
+      accentBg: "bg-fuchsia-400",
+      icon: keyIcon
+    },
+    {
+      id: "trustchain",
+      indexStr: "06",
+      title: "TrustChain Microfinance Grid",
+      category: "SYSTEMS",
+      description: "TrustChain Microfinance Grid is an upgraded blockchain-powered ecosystem with the aim of re-establishing trust and transparency in India's rural microfinance ecosystem. It connects the gaps between traditional lending institutions and underserved rural entrepreneurs by enabling a secure, auditable and privacy-preserving infrastructure.",
+      tags: ["Solidity", "Web3.js", "Ethereum"],
+      github: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype",
+      demo: "https://github.com/Viidhyanshu/TrustChain-Microfinance-Grid-Prototype#readme",
+      accentBg: "bg-[#8b5cf6]",
+      icon: trustchainIcon
+    },
+    {
+      id: "on-air-kbd",
+      indexStr: "07",
       title: "On Air Keyboard",
       category: "TOOLS",
-      description: "An innovative virtual keyboard using OpenCV and MediaPipe for gesture-based input.",
+      description: "An innovative virtual keyboard using OpenCV and MediaPipe for gesture-based input.A virtual keyboard controlled by hand gestures in the air using computer vision. Type without touching anything - just move your hands in front of your webcam!",
       tags: ["OpenCV", "MediaPipe", "Python"],
       github: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe",
       demo: "https://github.com/Viidhyanshu/On_Air_Keyboard_Using_Opencv_Mediapipe#readme",
@@ -171,7 +207,7 @@ export default function Projects() {
     },
     {
       id: "coffee-shop",
-      indexStr: "05",
+      indexStr: "08",
       title: "The Coffee Shop",
       category: "CREATIVE",
       description: "A cozy café-inspired website focused on clean design, warmth, and smooth user experience.",
@@ -180,42 +216,6 @@ export default function Projects() {
       demo: "https://github.com/Viidhyanshu/The-coffee-shop#readme",
       accentBg: "bg-orange-400",
       icon: coffeeIcon
-    },
-    {
-      id: "f1-data",
-      indexStr: "06",
-      title: "F1 Telemetry Analytics Dashboard",
-      category: "SYSTEMS",
-      description: "F1 telemetry data visualization and analytics platform for racing insights and performance tracking.",
-      tags: ["Python", "FastF1", "Streamlit"],
-      github: "https://github.com/Viidhyanshu/F1-Telemetry-Dashboard",
-      demo: "https://github.com/Viidhyanshu/F1-Telemetry-Analytics-Dashboard#readme",
-      accentBg: "bg-emerald-400",
-      icon: f1Icon
-    },
-    {
-      id: "cascade-hunt",
-      indexStr: "07",
-      title: "Cascade Cryptic Hunt",
-      category: "CREATIVE",
-      description: "A full-stack, real-time cryptic hunt gaming platform built using Next.js, featuring progressive clue decoding, user authentication, and interactive database persistence.",
-      tags: ["Next.js", "TypeScript", "Drizzle ORM", "Tailwind CSS"],
-      github: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt",
-      demo: "https://github.com/Viidhyanshu/Cascade-cryptic-hunt#readme",
-      accentBg: "bg-fuchsia-400",
-      icon: keyIcon
-    },
-    {
-      id: "cs-website",
-      indexStr: "08",
-      title: "CS Club Official Website",
-      category: "WEB APPS",
-      description: "The official web space for the Computer Science department and club, showcasing events, team rosters, blogs, and registration forms.",
-      tags: ["Next.js", "React", "Tailwind CSS", "Shadcn UI"],
-      github: "https://github.com/Viidhyanshu/CS-Website",
-      demo: "https://github.com/Viidhyanshu/CS-Website#readme",
-      accentBg: "bg-lime-400",
-      icon: browserIcon
     },
     {
       id: "coming-soon",
